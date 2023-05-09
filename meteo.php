@@ -18,7 +18,7 @@
             // Get Weather
             $city = new City($data[0]->lat, $data[0]->lon);
             // rewrite curl to get data of city
-            $url = "https://api.openweathermap.org/data/2.5/weather?lat=" . $data[0]->lat  . "&lon=". $data[0]->lon ."&units=metric&appid=" . $ApiKey;
+            $url = "https://api.openweathermap.org/data/2.5/weather?lat=" . $city->getLatitude()  . "&lon=". $city->getLongitude() ."&units=metric&appid=" . $ApiKey;
             $curl->executeUrl($url);
             $data = $curl->getData();
 
